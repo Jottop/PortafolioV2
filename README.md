@@ -3,8 +3,6 @@
 ## 🚀 Tecnologías
 
 - Astro
-- React
-- Vite
 
 ## 📝 Instrucciones
 
