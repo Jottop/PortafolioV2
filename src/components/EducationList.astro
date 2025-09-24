@@ -1,0 +1,33 @@
+---
+import { education } from "../education/education.js";
+const { careerName, institute, date, tasks } = education;
+---
+
+<section class="education-list-container">
+    <div class="experience-item">
+        <div class="circle"></div>
+        <h3>{careerName}</h3>
+        <div class="experience-info">
+            <div>
+                <span class="date">{date}</span>
+            </div>
+            <span class="company-name">{institute}</span>
+            <ul class="experience-list">
+                {
+                    tasks.map((task: string) => {
+                        return <li>{task}</li>;
+                    })
+                }
+            </ul>
+        </div>
+    </div>
+</section>
+
+<style>
+    .experience-item {
+        h3 {
+            color: var(--border-color-light);
+            margin-bottom: 20px;
+        }
+    }
+</style>

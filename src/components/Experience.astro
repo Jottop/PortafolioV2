@@ -1,0 +1,42 @@
+---
+import ExperienceList from "./ExperienceList.astro";
+---
+
+<section class="experience-section">
+    <div class="title">
+        <h2>EXPERIENCIA</h2>
+    </div>
+    <ExperienceList/>
+   
+</section>
+
+<style>
+    .experience-section {
+        h2 {
+            color: whitesmoke;
+            font-size: 30px;
+            letter-spacing: 2px;
+            background-color: var(--border-color-light);
+            text-shadow: -2px 2px 1px black;
+            padding: 5px 20px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .title {
+            display: flex;
+            margin-bottom: 40px;
+        }
+    }
+
+    @media (min-width: 900px) {
+        .experience-education {
+            display: flex;
+            justify-content: space-between;
+        }
+        .experience-education {
+            .education {
+                margin-top: 0;
+            }
+        }
+    }
+</style>

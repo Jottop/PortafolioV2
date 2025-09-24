@@ -1,0 +1,145 @@
+---
+import { projects } from "../projects/projects.js";
+import LinkIcon from "./icons/LinkIcon.astro";
+---
+
+<div class="project-list">
+    {
+        projects.map((project) => {
+            return (
+                <article class="project">
+                    <img
+                        class="project-img"
+                        src={project.imageSRC}
+                        alt="imagen del proyecto"
+                    />
+                    <div class="project-info">
+                        <div class="project-name">
+                            <h2>{project.name}</h2>
+                            <div class="project-link-container">
+                                <a class="project-link" href={project.link} target="_blank" rel="noreferrer noopener">
+                                <LinkIcon />
+                            </a>
+                            </div>
+                        </div>
+                        <div class="project-stacks-container">
+                            {project.stacks.map((stack) => {
+                                const { SVG } = stack;
+                                return (
+                                    <div
+                                        class="project-stack"
+                                        style={`border-color: ${stack.color}`}
+                                    >
+                                        <span>{stack.name}</span>
+                                        <SVG />
+                                    </div>
+                                );
+                            })}
+                        </div>
+                        <div class="project-descriptions">
+                            {project.descriptions.map((description) => {
+                                return <p>{description}</p>;
+                            })}
+                        </div>
+                    </div>
+                </article>
+            );
+        })
+    }
+</div>
+
+<style>
+    .project-name {
+        display: flex;
+        gap: 10px
+    }
+
+    .project-link-container {
+        display: flex;
+    }
+    
+    .project-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 20px;
+    }
+
+    .project-stacks-container {
+        display: flex;
+        gap: 15px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .project-stack {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        border: 1px solid transparent;
+        padding: 5px 15px;
+        border-radius: 20px;
+        span {
+            font-size: 13px;
+            font-weight: 500;
+        }
+    }
+
+    .project {
+        display: grid;
+        grid-template-columns: auto;
+        outline: 2px solid rgb(82, 0, 121);
+        border-radius: 15px;
+        padding: 25px;
+        gap: 50px;
+        background-image: radial-gradient(
+                circle at center center,
+                #240033,
+                rgb(14, 0, 22)
+            ),
+            repeating-radial-gradient(
+                circle at center center,
+                #ffffff,
+                #ffffff,
+                40px,
+                transparent 80px,
+                transparent 40px
+            );
+        background-blend-mode: multiply;
+    }
+
+    .project-info {
+        color: white;
+
+        h2 {
+            font-size: 40px;
+            color: rgb(205, 0, 212);
+        }
+
+        .project-descriptions {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding-top: 20px;
+            color: rgb(255, 255, 255);
+
+            p {
+                font-size: 18px;
+            }
+        }
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        object-fit: contain;
+    }
+
+    @media (width > 1000px) {
+        .project {
+            grid-template-columns: repeat(2, 1fr);
+            padding: 50px;
+        }
+    }
+</style>

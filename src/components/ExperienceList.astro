@@ -1,0 +1,37 @@
+---
+import { experiences } from "../experience/experience.js";
+---
+
+<div class="experience-list-container">
+    {
+        experiences.map((experience) => {
+            const { jobName, companyName, date, tasks } = experience;
+            return (
+                <div class="experience-item">
+                    <div class="circle" />
+                    <h3>{jobName}</h3>
+                    <div class="experience-info">
+                        <div>
+                            <span class="date">{date}</span>
+                        </div>
+                        <span class="company-name">{companyName}</span>
+                        <ul class="experience-list">
+                            {tasks.map((task: any) => {
+                                return <li>{task}</li>;
+                            })}
+                        </ul>
+                    </div>
+                </div>
+            );
+        })
+    }
+</div>
+
+<style>
+    .experience-item {
+        h3 {
+            color: var(--border-color-light);
+            margin-bottom: 20px;
+        }
+    }
+</style>

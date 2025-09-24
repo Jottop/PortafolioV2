@@ -1,0 +1,30 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Main from '@/components/Main.astro';
+import Projects from '@/components/Projects.astro';
+import Experience from '@/components/Experience.astro';
+import Education from '@/components/Education.astro';
+import Footer from '@/components/Footer.astro';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+	<Main/>
+	<Projects/>
+	<div class="Experience-Education-container">
+		<Experience/>
+		<Education/>
+	</div>
+	<Footer/>
+</Layout>
+
+<style>
+	.Experience-Education-container {
+		margin-top: 50px;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+		gap: 50px;
+	}
+</style>

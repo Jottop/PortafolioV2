@@ -1,0 +1,30 @@
+---
+import EducationList from "./EducationList.astro";
+---
+
+<section class="education-container">
+    <div class="title">
+        <h2>EDUCACIÓN</h2>
+    </div>
+    <EducationList />
+</section>
+
+<style>
+    .education-container{
+        display: flex;
+        flex-direction: column;
+        h2 {
+            color: whitesmoke;
+            font-size: 30px;
+            letter-spacing: 2px;
+            background-color: var(--border-color-light);
+            text-shadow: -2px 2px 1px black;
+            padding: 5px 20px;
+            border-radius: 0 10px 10px 0;
+        }
+    }
+    .title{
+        display: flex;
+        margin-bottom: 40px;
+    }
+</style>
