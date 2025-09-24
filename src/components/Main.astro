@@ -2,7 +2,7 @@
 import perfil from "@/assets/img/perfil.webp";
 import MailIcon from "@/components/icons/MailIcon.astro";
 import LinkedinIcon from "@/components/icons/LinkedinIcon.astro";
-import wallpaper from "@/assets/img/wallpaper.webp";
+import CheckIcon from "@/components/icons/CheckIcon.astro";
 ---
 
 <section class="bento-main">
@@ -12,6 +12,13 @@ import wallpaper from "@/assets/img/wallpaper.webp";
             <div class="perfil-info">
                 <h1 class="perfil-title">Sebastian Osses</h1>
                 <span class="highlight">Desarrollador Web</span>
+                <div class="email-btn-container">
+                    <button class="email-btn" title="Copiar correo">sebastian.alexiis@hotmail.com</button
+                    >
+                    <div class="check-icon">
+                        <CheckIcon />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -21,7 +28,7 @@ import wallpaper from "@/assets/img/wallpaper.webp";
             encuentran.
         </p>
         <p>
-            Soy un desarrollador junior enfocado en frontend, siempre buscando
+            Desarrollador junior enfocado en frontend, siempre buscando
             crecer y dar forma a nuevas ideas digitales.
         </p>
     </div>
@@ -29,9 +36,29 @@ import wallpaper from "@/assets/img/wallpaper.webp";
         <a href="mailto:sebastian.alexiis@hotmail.com"><MailIcon /></a>
     </div>
     <div class="card card-linkedin">
-        <a href="https://www.linkedin.com/in/sebaossesf/" target="_blank" rel="noopener noreferrer"><LinkedinIcon /></a>
+        <a
+            href="https://www.linkedin.com/in/sebaossesf/"
+            target="_blank"
+            rel="noopener noreferrer"><LinkedinIcon /></a
+        >
     </div>
 </section>
+
+<script>
+    const $emailBtn = document.querySelector(".email-btn") as HTMLButtonElement;
+    const $checkIcon = document.querySelector(".check-icon") as HTMLDivElement;
+    $emailBtn.addEventListener("click", () => {
+        if ($checkIcon.classList.contains("visible")) return;
+
+        const seconds = 5000;
+        const email = $emailBtn.innerText;
+        navigator.clipboard.writeText(email);
+        $checkIcon.classList.add("visible");
+        setTimeout(() => {
+            $checkIcon.classList.remove("visible");
+        }, seconds);
+    });
+</script>
 
 <style>
     .perfil-info {
@@ -61,7 +88,45 @@ import wallpaper from "@/assets/img/wallpaper.webp";
         color: aliceblue;
         height: 100%;
         gap: 30px;
+        padding: 20px;
     }
+
+    .email-btn-container {
+        position: relative;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .email-btn {
+        padding: 10px 20px;
+        border: 1px solid white;
+        border-radius: 15px;
+        background-color: transparent;
+        color: white;
+        font-size: 15px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .email-btn:hover {
+        background-color: white;
+        color: var(--bg-color);
+    }
+
+    .check-icon {
+        position: absolute;
+        right: 0;
+        transform: translateX(40px);
+        opacity: 0;
+        transition: all 0.2s;
+    }
+
+    .visible {
+        opacity: 1;
+    }
+
     .bento-main {
         width: 100%;
         display: grid;
@@ -88,7 +153,7 @@ import wallpaper from "@/assets/img/wallpaper.webp";
         border-radius: 15px 15px 15px 0;
         background-color: #007548;
         padding: 20px;
-        text-shadow: 1px 2px 1px black;
+        text-shadow: 1px 1px 1px black;
     }
 
     .card-mail {
