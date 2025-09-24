@@ -6,14 +6,8 @@ import MailIcon from "./icons/MailIcon.astro";
 <footer class="footer-container">
     <p>© 2025 Sebastian Osses</p>
     <div>
-        <a href="mailto:sebastian.alexiis@hotmail.com"
-            ><MailIcon className="footer-icon" /></a
-        >
-        <a
-            href="https://www.linkedin.com/in/sebaossesf/"
-            target="_blank"
-            rel="noopener noreferrer"
-            ><LinkedinIcon className="footer-icon" /></a
+        <a href="mailto:sebastian.alexiis@hotmail.com"><MailIcon className="footer-icon" /> </a>
+        <a href="https://www.linkedin.com/in/sebaossesf/" target="_blank" rel="noopener noreferrer"><LinkedinIcon className="footer-icon" /></a
         >
     </div>
 </footer>
@@ -28,5 +22,9 @@ import MailIcon from "./icons/MailIcon.astro";
         display: flex;
         height: 30px;
         margin-bottom: 50px;
+        
+        a{
+            text-decoration: none;
+        }
     }
 </style>
